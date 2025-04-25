@@ -21,12 +21,12 @@ function Contact() {
 
   function ChangeView({ center }) {
     const map = useMap();
-    map.setView(center, 15); // Aumentei o zoom aqui
+    map.setView(center, 15); 
     return null;
   }
 
   useEffect(() => {
-    const sanitizedCep = cep.replace(/\D/g, ""); // remove qualquer caractere não numérico
+    const sanitizedCep = cep.replace(/\D/g, ""); 
 
     if (sanitizedCep.length !== 8) return;
 

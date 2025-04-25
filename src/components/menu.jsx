@@ -1,5 +1,5 @@
 import style from "./menu.module.css"
-import logoNav from '../assets/images/android-icon-192x192.webp'
+import logoNav from '../assets/images/logo 2.jpg'
 
 export const Menu = (props) => {
     return (

@@ -1,4 +1,4 @@
-import logo from "./assets/images/dragon-ball-super-logo.png"
+import logo from "./assets/images/dragon_Ball_Z_logo_A.png"
 
 import { useState } from 'react'
 
@@ -20,18 +20,15 @@ function App() {
         <img src={logo} alt="logo" className={style.logo}/>
        
         <div className={style.wrapInfo}>
-        <p className={style.paragrafoLP}>Dragon Ball é um mangá criado por Akira Toriyama e estreado em novembro de 1984 
-          na Weekly Shonen Jump. Por conta do grande sucesso, em menos de 2 anos recebeu uma adaptação animada em fevereiro de 
-          1986 pela Toei Animation, e mais tarde, em abril de 1989,a adaptação da segunda parte em mangá pelo mesmo estúdio. Anos mais tarde, 
-          recebeu uma animação original em junho de 2015 nomeada e conhecida como Dragon Ball Super. A história conta a vida de Son Goku e seus amigos.</p>
-        <button className={style.btAparecerB} onClick={ () => {setAparecerBotao(true)}}>Quero ver o filme!</button>
+        <p className={style.paragrafoLP}>Dragon Ball é uma famosa obra criada por Akira Toriyama, cuja primeira publicação ocorreu em novembro de 1984 na revista Weekly Shonen Jump. Devido ao imenso sucesso, em um curto período de tempo, a história ganhou uma adaptação para o anime em fevereiro de 1986, produzida pela Toei Animation. Posteriormente, em abril de 1989, a Toei também adaptou a continuação da história para o formato de mangá. Mais tarde, em 2015, foi lançada uma nova série de anime, Dragon Ball Super, que continuou expandindo o universo da obra. A trama central acompanha a vida de Son Goku e seus amigos, seus desafios e aventuras, enquanto eles enfrentam inimigos poderosos e exploram temas como amizade, superação e luta pelo bem.</p>
+        <button className={style.btAparecerB} onClick={ () => {setAparecerBotao(true)}}>Quero saber mais!s!</button>
        
         </div>
         </div>
        
        <div className={style.AparecerVideo}>
-       {aparecerBotao &&   <button className={style.btAparecerV} onClick={() => {setAparecerVideo(true); } }>Tenho certeza de quero ver!</button>}
-       {aparecerVideo && <iframe width="90%" height="200" src="https://www.youtube.com/embed/bPXQJF9WIR8?si=uyLZxm0_2dpLyGqe&amp;start=3" 
+       {aparecerBotao &&   <button className={style.btAparecerV} onClick={() => {setAparecerVideo(true); } }>Quero saber mais!</button>}
+       {aparecerVideo && <iframe width="90%" height="200" src="https:www.youtube.com/embed//BIIUfbE2ajc?si=NP22kjHzyZmOpuUM"
        title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
        referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>}
        </div>
