@@ -1,94 +1,47 @@
-import style from "./App.module.css";
-import { Btn } from "./components/btn";
-import { Menu } from "./components/menu";
-import { Card } from "./components/card";
+import logo from "./assets/images/dragon-ball-super-logo.png"
 
-import p1 from "./assets/images/p1.jpeg";
-import { cards } from './assets/mock/cards';
+import { useState } from 'react'
 
-import { useState } from "react";
+import style from './App.module.css'
+
+import {Menu} from './components/menu.jsx'
 
 function App() {
-  const defaultPhoneNumber = "5541999999999";
-
-  const [formData, setFormData] = useState({
-    name: "",
-    email: "",
-    message: "",
-  });
-
-  const handleChange = (e) => {
-    const { name, value } = e.target;
-    setFormData({ ...formData, [name]: value });
-  };
-
-  const handleZap = () => {
-    const { name, email, message } = formData;
-
-    const urlZAPZAP = `https://api.whatsapp.com/send?phone=${defaultPhoneNumber}&text=
-  Nome:%20${name}%0D%0A
-  Email:%20${email}%0D%0A
-  Mensagem:%20${message}%0D%0A`;
-
-    window.open(urlZAPZAP, "_blank");
-  };
+  const [aparecerVideo, setAparecerVideo] = useState(false)
+  const [aparecerBotao, setAparecerBotao] = useState(false)
 
   return (
     <>
-      <Menu s1="Home" s2="Sessão 2" s3="CONTATO" s4="Calculos" s5="Consumindo API" />
-      <main>
-        <section id="s1" className={style.s1}>
-          {/* <Btn text="proxima sessão" func="#s2"/> <br /> */}
-          {cards.map((item, index) => {
-            return (
-              <div key={index}>
-                <Card text={item.text} img={item.img} alt={item.text}/>
-              </div>
-            )
-          })}
-        </section>
-        <section id="s2" className={style.s2}>
-          <Btn text="volta pra cima" func="#s1" />
-          <h2>Contato</h2>
-          <div>
-            <label htmlFor="name">Nome</label>
-            <input
-              type="text"
-              id="name"
-              name="name"
-              value={formData.name}
-              onChange={handleChange}
-              required
-            />
-          </div>
-          <div>
-            <label htmlFor="email">E-mail</label>
-            <input
-              type="email"
-              id="email"
-              name="email"
-              value={formData.email}
-              onChange={handleChange}
-              required
-            />
-          </div>
-          <div>
-            <label htmlFor="message">Mensagem</label>
-            <textarea
-              name="message"
-              id="message"
-              value={formData.message}
-              onChange={handleChange}
-              cols="30"
-              rows="10"
-              required
-            ></textarea>
-          </div>
-          <button onClick={handleZap}>Enviar mensagem</button>
-        </section>
-      </main>
+     {/* {first ? <nav>batata</nav>: <nav>Arroz</nav>}
+     <button onClick={() => setfirst(true)}><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/b2/Hamburger_icon.svg/640px-Hamburger_icon.svg.png" alt="" /></button> */}
+   <Menu option01='Início' option02='Personagens'/>
+   <section className={style.Inicio}>
+      <div className={style.primeira}>
+        <img src={logo} alt="logo" className={style.logo}/>
+       
+        <div className={style.wrapInfo}>
+        <p className={style.paragrafoLP}>Dragon Ball é um mangá criado por Akira Toriyama e estreado em novembro de 1984 
+          na Weekly Shonen Jump. Por conta do grande sucesso, em menos de 2 anos recebeu uma adaptação animada em fevereiro de 
+          1986 pela Toei Animation, e mais tarde, em abril de 1989,a adaptação da segunda parte em mangá pelo mesmo estúdio. Anos mais tarde, 
+          recebeu uma animação original em junho de 2015 nomeada e conhecida como Dragon Ball Super. A história conta a vida de Son Goku e seus amigos.</p>
+        <button className={style.btAparecerB} onClick={ () => {setAparecerBotao(true)}}>Quero ver o filme!</button>
+       
+        </div>
+        </div>
+       
+       <div className={style.AparecerVideo}>
+       {aparecerBotao &&   <button className={style.btAparecerV} onClick={() => {setAparecerVideo(true); } }>Tenho certeza de quero ver!</button>}
+       {aparecerVideo && <iframe width="90%" height="200" src="https://www.youtube.com/embed/bPXQJF9WIR8?si=uyLZxm0_2dpLyGqe&amp;start=3" 
+       title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+       referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>}
+       </div>
+      
+   </section>
+   
+  
+   
     </>
-  );
+  )
 }
 
-export default App;
+export default App

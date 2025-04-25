@@ -1,16 +1,116 @@
-.s1{
-  background-color: rgb(204, 92, 238);
-  padding-top: 100px;
-  display: flex;
-  flex-wrap: wrap;
-  align-items: center;
-  justify-content: center;
-  gap: 2vw;
-  height: auto;
-  min-height: 80vh;
+.logo{
+    margin-top: 60px;
+    width: 300px;
+    height: auto;   
+    margin-bottom: 8px;
 }
 
-.s2{
-  background-color: rgb(69, 156, 238);
-  padding-top: 100px;
+.primeira{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.paragrafoLP{
+    width: 85vw;
+    text-align: center;
+    color: rgb(251, 192, 45);
+}
+.wrapInfo{
+    padding-top: 3%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    gap: 1.5rem;
+    border: 3px solid black;
+    padding: 0.8rem;
+    border-radius: 16px;
+    margin-bottom: 1rem;
+}
+.btAparecerB{
+    background-color: rgb(251, 192, 45);
+    color: rgba(0, 0, 0, 0.8);
+    border-radius: 8px;
+    padding: 0.3rem;
+    cursor: pointer;
+    transition: all 400ms ease-in-out;
+    transform: scale(0.9);
+}
+
+.btAparecerB:hover{
+    box-shadow: 0 4px 8px rgba(255, 0, 0, 0.8); /* sombra mais intensa */
+    transform: scale(1.0);
+}
+
+.btAparecerV{
+    background-color: rgb(251, 192, 45);
+    color: rgba(0, 0, 0, 0.8);
+    border-radius: 8px;
+    padding: 0.4rem;
+    cursor: pointer;
+    transition: all 400ms ease-in-out;
+    transform: scale(0.9);
+}
+
+.btAparecerV:hover{
+    box-shadow: 0 4px 8px rgba(255, 0, 0, 0.8); /* sombra mais intensa */
+    transform: scale(1.0);
+}
+.AparecerVideo{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding-top: 1rem;
+    gap: 1rem;
+    border-radius: 16px;
+    padding: 0.5rem;
+}
+
+.Inicio{
+    background-color: rgb(32, 38, 50);
+    width: 100%;
+}
+
+@media (min-width: 600px) {
+ 
+
+    input{
+    transform: scale(1.0);
+   }
+   iframe{
+    width: 90%;
+    height: 300px;
+   }
+
+}
+
+@media (min-width: 1000px) {
+    .paragrafoLP{
+        width: 70%;
+    }
+
+    .logo{
+    
+        width: 600px;
+        height: auto;   
+       
+    }
+    
+    .wrapInfo{
+        margin-top: 2rem;
+        width: 50%;
+        height: auto;
+    }
+    .primeira{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: row;
+        gap: 2rem;
+        margin-top: 5%;
+    }
+    
 }

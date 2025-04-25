@@ -1,44 +1,64 @@
-import { useEffect, useState } from "react"
-import { api } from "./api/api"
-
-import { Card } from "./components/card"
-
+import { useEffect, useState } from 'react'
+import { apiDB } from './api/api'
+import { Card } from './Card'
 import style from './Req.module.css'
+import { Menu } from './components/menu'
+
+import logoApi from './assets/images/logo_dragonballapi.webp'
 
 export default function Req(){
-    const [data, setData] = useState([])
+    const[data, setData] = useState([])
     const [page, setPage] = useState("")
-    const [searchName, setSearchName] = useState("")
-    const [erro, setErro] = useState(false)
 
-
-    useEffect(() => {
-        api.get(`/character/?page=${page}&name=${searchName}`).then((res) => {
-            setErro(false)
-            setData(res.data.results)
-        }).catch((error) => {
-            if(error.response.status === 404){
-                setErro(true)
-            }
-            console.error(error)
-        })
-    }, [page, searchName])
+    const[erro, setErro] = useState(false)
     
-    return(
-        <section className={style.opa}>
-        <h1>RICK AND MORTY API</h1>
-        <br />
-        {erro &&  <p style={{ color: "red" }}>Página não existe, 1 até 42</p> }
-        <input style={{ width: "330px", marginRight: "10px", padding: "10px" }} type="text" placeholder="Digite uma pagina (1/42)" value={page} onChange={(event) => setPage(event.target.value)}/>
-        <input style={{ width: "330px", padding: "10px"}} type="text" placeholder="Digite um nome de personagem" value={searchName} onChange={(event) => setSearchName(event.target.value)}/>
-        <br />
-        <br />
-        {data.map((item, index) => (
-                <div className={style.wrapAll1} key={index}>
-                    <Card img={item.image} text={item.name}/>
-                </div>
-        ))}
-        </section>
+    useEffect(() => {
+      apiDB.get(`/characters?page=${page}`).then((res) => {
+        setData(res.data.items)
+        console.log(res.data.items)       
 
+      }).catch((error) => {
+        if(error.response && error.response.status === 404){
+            setErro(true)
+        }
+        console.log(error)
+      }
+    ) 
+    }, [page])
+
+    return(
+    <>
+   <Menu option01='Voltar' option02=""/>
+      
+      <section className={style.wrapPage}>
+      <div className={style.imageApi}>
+      <img src={logoApi} alt="logoApi" className={style.logoApi} />
+      </div>
+      <h1 className={style.titleApi}>The Dragon Ball API</h1>,
+    <div className={style.containerInput}>
+    <input type="text" placeholder='Digite uma pagina de 1 a 5' value={page} onChange={(e) => setPage(e.target.value)} /> 
+    {erro && <p>Pagina não encontrada</p>}
+    </div>
+      
+
+
+
+      <div className={style.wrapCards}>
+      
+      {data.map((item, index) => {
+          return(
+              <div key={index}>
+                  <Card name={item.name} image={item.image} ki={item.ki} maxKi={item.maxKi} race={item.race} gender={item.gender} affiliation={item.affiliation}/>
+              </div>
+          )
+      })}
+    
+      
+      </div>
+     </section>
+    </>
+    
     )
+    
+
 }
